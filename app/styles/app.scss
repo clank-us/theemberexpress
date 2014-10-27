@@ -99,6 +99,14 @@ header {
     height: 200px;
     text-align: left;
     padding: 10px;
+    span{
+      background: $blue;
+      color: $gray;
+    }
+  }
+
+  .actions{
+    display: none
   }
 
 }
