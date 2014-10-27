@@ -35,7 +35,7 @@ body{
 
 header {
   .border{
-    width: calc( 100% - 20px);
+    width: calc( 100% - 21px);
     height: 5px;
     border-radius: 2px;
     background: $yellow;
@@ -88,7 +88,7 @@ header {
     color: $white;
     letter-spacing: 1px;
     box-sizing: border-box;
-
+    border-radius: 5px;
     &:focus{
       border: solid 3px $yellow;
     }

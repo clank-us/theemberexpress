@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route("home", { path: '/' });
+  this.route("regex", { path: '/' });
   this.route("about-us", { path: 'about-us' });
 });
 
