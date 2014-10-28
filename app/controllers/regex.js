@@ -7,13 +7,13 @@ var RegexController = Ember.ObjectController.extend({
       var self = this;
       $.post( self.url, self.matchPostData(),
         function(response){
-          self.model.highlightTestString(response.matches)
+          self.model.highlightTestString(response.match_data)
         }, 'json'
       );
     }
   },
 
-  url: "http://mock.mocaroni.com/Wy5nuHes4mf34C79p_AH9v4aSPA/match?status=200",
+  url: "http://localhost:9393/",
 
   matchPostData: function(){
     return {

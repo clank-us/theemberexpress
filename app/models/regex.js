@@ -12,7 +12,9 @@ var Regex = Ember.Object.extend({
      return (this.patternString.match(/[^/]\w+$/) || [null])[0]
   },
 
-  highlightTestString: function(){ },
+  highlightTestString: function(matches){
+    debugger
+  },
 
 });
 
