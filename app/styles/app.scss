@@ -96,9 +96,11 @@ header {
   }
 
   #editor{
-    height: 200px;
+    height: 300px;
     text-align: left;
     padding: 10px;
+    white-space: pre;
+    overflow: auto;
     span{
       background: $blue;
       color: $gray;

@@ -5,13 +5,16 @@ var RegexController = Ember.ObjectController.extend({
     match: function(){
       var self = this;
       $.post(self.url, {}, function(response){
-          self.model.highlightMatches(response.matches)
-        }, 'json'
+          var matchedText = Ember.String.htmlSafe(response)
+          self.model.set("editorText", matchedText)
+        }, 'text'
       )
     }
   },
 
-  url: "http://mock.mocaroni.com/Wy5nuHes4mf34C79p_AH9v4aSPA/match?status=200"
+  url: "http://mock.mocaroni.com/Wy5nuHes4mf34C79p_AH9v4aSPA/match?status=200",
+
+  keyPress: function(){console.log("hello")}
 
 });
 
