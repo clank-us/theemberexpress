@@ -9,6 +9,14 @@ var EditorView = Ember.View.extend({
     }
   },
 
+  focusIn: function(event){
+    var $el = this.$('div');
+    $el.html($el.text());
+  },
+
+  focusOut: function(){
+    this.get('controller').send('match');
+  }
 })
 
 export default EditorView;
