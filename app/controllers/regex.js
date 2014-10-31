@@ -7,7 +7,7 @@ var RegexController = Ember.ObjectController.extend({
       var self = this;
       $.post( self.url, self.matchPostData(),
         function(response){
-          self.model.highlightTestString(response.match_data)
+          self.model.highlightTestString(response.match_string)
         }, 'json'
       );
     }
@@ -19,8 +19,8 @@ var RegexController = Ember.ObjectController.extend({
     return {
       pattern: this.model.pattern(),
       flags: this.model.flags(),
-      test_string: this.model.get("testString")
-    }
+      test_string: $('#editor').text()
+    };
   },
 
   keyPress: function(){console.log("hello")}

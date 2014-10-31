@@ -1,19 +1,20 @@
 import Ember from "ember";
 
 var Regex = Ember.Object.extend({
-  testString: "Your Test string here",
   patternString: "",
 
   pattern: function(){
-    return (this.patternString.match(/[^\/].+(?=\/+)/) || [null])[0]
+    var pattern =  /\/(.+)\/[^\/]*$/.exec(this.patternString) || [];
+    return pattern[1];
   },
 
   flags: function(){
-     return (this.patternString.match(/[^/]\w+$/) || [null])[0]
+     var flags =  /\/(\w+)$/.exec(this.patternString) || [];
+     return flags[1];
   },
 
-  highlightTestString: function(matches){
-    debugger
+  highlightTestString: function(matchString){
+    $('#editor').html(matchString);
   },
 
 });
