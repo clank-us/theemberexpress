@@ -7,7 +7,8 @@ var EditorView = Ember.View.extend({
       document.execCommand("insertHTML",false,"\n\r");
       return false;
     }
-  }
+  },
+
 })
 
 export default EditorView;

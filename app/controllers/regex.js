@@ -23,8 +23,6 @@ var RegexController = Ember.ObjectController.extend({
     };
   },
 
-  keyPress: function(){console.log("hello")}
-
 });
 
 export default RegexController;
