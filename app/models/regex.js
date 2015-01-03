@@ -2,16 +2,18 @@ import Ember from "ember";
 
 var Regex = Ember.Object.extend({
   patternString: "",
+  captures: [],
+
 
   pattern: function(){
     var pattern =  /\/(.+)\/[^\/]*$/.exec(this.patternString) || [];
     return pattern[1];
-  },
+  }.property("patternString"),
 
   flags: function(){
-     var flags =  /\/(\w+)$/.exec(this.patternString) || [];
-     return flags[1];
-  },
+    var flags =  /\/(\w+)$/.exec(this.patternString) || [];
+    return flags[1];
+  }.property("patternString"),
 
   highlightTestString: function(matchString){
     var escapedString = this.htmlEncode(matchString);
@@ -23,20 +25,14 @@ var Regex = Ember.Object.extend({
     return {
       "--{": "<span>",
       "}--": "</span>"
-    }[string]
+    }[string];
   },
 
   htmlEncode: function(html) {
     return document.createElement( 'a' ).appendChild(
       document.createTextNode( html ) ).parentNode.innerHTML;
-  },
+  }
 
-  htmlDecode: function(html) {
-    var a = document.createElement( 'a' ); a.innerHTML = html;
-    return a.textContent;
-  },
-
-
-  });
+});
 
 export default Regex;

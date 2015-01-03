@@ -11,5 +11,12 @@
     <fieldset class="actions">
       <button {{action "match"}}>Match</button>
     </fieldset>
+    <ul> 
+      {{#each capture in model.captures}}
+      <li>
+        {{capture}}
+      </li>
+      {{/each}}
+    </ul>
   </form>
 </article>

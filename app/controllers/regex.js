@@ -7,9 +7,13 @@ var RegexController = Ember.ObjectController.extend({
       var self = this;
       $.post( self.url, self.matchPostData(),
         function(response){
-          self.model.highlightTestString(response.match_string)
+          self.model.set('captures', response.captures);
+          self.model.highlightTestString(response.match_string);
         }, 'json'
-      );
+      ).fail(function(){
+        self.model.set('captures', []);
+        self.model.highlightTestString(self.matchPostData().test_string);
+      });
     }
   },
 
@@ -17,8 +21,8 @@ var RegexController = Ember.ObjectController.extend({
 
   matchPostData: function(){
     return {
-      pattern: this.model.pattern(),
-      flags: this.model.flags(),
+      pattern: this.get('model.pattern'),
+      flags: this.get('model.flags'),
       test_string: $('#editor').text()
     };
   },
