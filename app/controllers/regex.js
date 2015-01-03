@@ -17,7 +17,7 @@ var RegexController = Ember.ObjectController.extend({
     }
   },
 
-  url: "http://localhost:9393/",
+  url: "http://ruby.theregularexpress.com/",
 
   matchPostData: function(){
     return {
